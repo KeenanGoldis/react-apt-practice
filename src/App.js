@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
 
 class App extends Component {
+  componentWillMount() {
+    axios.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=J8yUtPsCKTDCcfBfw4pO3jGmYM7OjJpQhgHBqTTb')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
   render() {
     return (
       <div className="App">
@@ -17,5 +27,7 @@ class App extends Component {
     );
   }
 }
+
+// https://api.nasa.gov/planetary/apod?api_key=J8yUtPsCKTDCcfBfw4pO3jGmYM7OjJpQhgHBqTTb
 
 export default App;
