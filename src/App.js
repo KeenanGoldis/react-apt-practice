@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       apiPic: "",
       apiExplanation: "",
+      apiVid: "",
     }
   }
 
@@ -22,6 +23,16 @@ class App extends Component {
     .catch((error) => {
       console.log(error);
     });
+
+    axios.post('http://posttestserver.com/post.php', 'this is a test sentence')
+    .then ((response) => {
+      console.log(response);
+      this.setState({apiResponse: response.data})
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
   }
 
   render() {
@@ -30,9 +41,11 @@ class App extends Component {
         <div className="App-header">
           <h2>Your Daily Planet Picture!</h2>
         </div>
-
+        <p className="App-intro">
+          {this.state.apiResponse}
+        </p>
         <div className="Central">
-          <img src={this.state.apiPic} className="App-logo" alt="logo" />
+          <img src={this.state.apiPic} />
           <div className="Explanations">
             <p> {this.state.apiExplanation} </p>
           </div>

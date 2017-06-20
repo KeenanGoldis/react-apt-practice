@@ -2,9 +2,13 @@
   text-align: center;
 }
 
+.Central img{
+  max-height: 500px;
+}
+
 .App-logo {
-  /*animation: App-logo-spin infinite 20s linear;*/
-  height: 700px;
+  animation: App-logo-spin infinite 20s linear;
+  height: 400px;
 }
 
 .App-header {
